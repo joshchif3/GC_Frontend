@@ -13,6 +13,7 @@ import ProductForm from "./components/ProductForm"; // Import ProductForm for ad
 import LoginPage from "./components/LoginPage";
 import SignUpPage from "./components/SignUpPage";
 import CheckoutForm from "./components/CheckoutPage"; // Import CheckoutForm
+import Design from "./components/Design"; // Import the Design component
 import { AuthProvider } from "./services/AuthContext";
 import { CartProvider } from "./services/CartContext";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -32,6 +33,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignUpPage />} />
               <Route path="/checkout" element={<CheckoutForm />} /> {/* Checkout Route */}
+              <Route path="/design" element={<Design />} /> {/* Design Route */}
 
               {/* Admin Page (Protected Route) */}
               <Route

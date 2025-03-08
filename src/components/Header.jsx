@@ -1,4 +1,3 @@
-// src/components/Header.jsx
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../services/CartContext.jsx";
@@ -22,6 +21,7 @@ function Header() {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/products">Products</Link></li>
+            <li><Link to="/design">Design</Link></li> {/* Added Design Link */}
             {user ? (
               <>
                 <li><button onClick={handleLogout}>Logout</button></li>
