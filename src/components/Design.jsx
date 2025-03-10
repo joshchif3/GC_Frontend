@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 function Design() {
   const [designFile, setDesignFile] = useState(null);
@@ -16,13 +15,30 @@ function Design() {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle form submission (e.g., send data to the server)
-    console.log("Design File:", designFile);
-    console.log("Colors:", colors);
-    console.log("Quantity:", quantity);
-    console.log("Sizes:", sizes);
+
+    const formData = new FormData();
+    formData.append("colors", colors);
+    formData.append("quantity", quantity);
+    formData.append("sizes", sizes);
+    formData.append("designFile", designFile);
+
+    try {
+      const response = await fetch("https://gc-frontend.onrender.com/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Design uploaded successfully:", result);
+      } else {
+        console.error("Failed to upload design");
+      }
+    } catch (error) {
+      console.error("Error uploading design:", error);
+    }
   };
 
   return (
@@ -104,12 +120,6 @@ function Design() {
           <button type="submit" className="btn">
             Save Design
           </button>
-          <Link to="/order-sample" className="btn">
-            Order Sample
-          </Link>
-          <Link to="/checkout" className="btn">
-            Place Order
-          </Link>
         </div>
       </form>
     </div>
