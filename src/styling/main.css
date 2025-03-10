@@ -1,6 +1,6 @@
 /* ================== MAIN THEME COLORS ================== */
 :root {
-  --primary-color: #80755c;
+  --primary-color: #cca957;
   --secondary-color: #d8c27d;
   --accent-color: #cac6bb;
   --dark-color: #b3ada4;
@@ -193,7 +193,7 @@ body {
   align-items: center;
   justify-content: space-between; /* Space between text and image */
   padding: 60px 40px; /* Increased padding for more space */
-  background-color: #80755c; /* Brown background */
+  background-color: #cca957; /* Brown background */
   border: 2px solid #d8c27d; /* Border with a lighter brown color */
   border-radius: 10px; /* Rounded corners */
   margin: 20px; /* Add some margin for spacing */
