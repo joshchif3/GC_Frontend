@@ -1,8 +1,8 @@
 /* ================== MAIN THEME COLORS ================== */
 :root {
   --primary-color: #cca957;
-  --secondary-color: #d8c27d;
-  --accent-color: #cac6bb;
+  --secondary-color: #f7f7f7;
+  --accent-color: #f1ede0;
   --dark-color: #b3ada4;
   --background-color: #ffffff; /* Changed to white */
   --text-color: #333;
