@@ -61,7 +61,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaTiktok /> {/* TikTok Icon */}
+              <FaTiktok /> {/* TikTok Ico */}
             </a>
           </div>
         </div>
