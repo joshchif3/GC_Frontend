@@ -8,7 +8,7 @@ function ContactsPage() {
     email: "",
     message: "",
   });
-  const [isMessageSent, setIsMessageSent] = useState(false); // States to handle the success message
+  const [isMessageSent, setIsMessageSent] = useState(false); // States to hansdle the success message
 
   const handleChange = (e) => {
     const { name, value } = e.target;
