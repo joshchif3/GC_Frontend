@@ -66,7 +66,7 @@ function ContactsPage() {
         </div>
       </div>
 
-      {/* Paragraph Section Above the Form */}
+      {/* Paragraph Section Above the Form cc */}
       <div className="contact-paragraph">
         <p>If you have any queries or would like to order a custom design, feel free to reach out to us. Whether you want a t-shirt, hoodie, cap, or any other custom accessory, we are here to help bring your creative ideas to life. Our team is ready to assist you in creating the perfect design for your needs. Let’s work together to create something amazing!</p>
       </div>
