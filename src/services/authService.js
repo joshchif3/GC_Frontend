@@ -1,36 +1,38 @@
-const API_URL = "https://gc-backend-1.onrender.com";
+import axios from "axios";
+import { createContext, useEffect, useState } from "react";
 
-export const login = async (username, password) => {
-  const response = await fetch(`${API_URL}/users/login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, password }),
-  });
+export const AuthContext = createContext();
 
-  if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.message || "Login failed");
-  }
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const data = await response.json();
-  return {
-    token: data.token,
-    role: data.role,
-    userId: data.userId, // Ensure this matches the backend response
-  };
-};
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = localStorage.getItem("token"); // Get token from local storage
+        if (!token) {
+          throw new Error("No token found");
+        }
 
-export const register = async (username, email, password, role) => {
-  const response = await fetch(`${API_URL}/users/register`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, email, password, role }),
-  });
+        const response = await axios.get("http://localhost:8081/api/auth/user", {
+          headers: { Authorization: `Bearer ${token}` }, // Include token in request
+        });
 
-  if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.message || "Registration failed");
-  }
+        setUser(response.data);
+      } catch (error) {
+        console.error("User fetch error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  return response.json();
+    fetchUser();
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ user, loading }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };

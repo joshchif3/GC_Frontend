@@ -20,8 +20,9 @@ function Header() {
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/products">Products</Link></li>
             <li><Link to="/design">Design</Link></li> {/* Added Design Link */}
+            <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/products">Products</Link></li>
             {user ? (
               <>
                 <li><button onClick={handleLogout}>Logout</button></li>

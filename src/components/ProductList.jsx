@@ -1,4 +1,3 @@
-// components/ProductList.js
 import React, { useState, useEffect } from "react";
 import { fetchProducts } from "../services/api";
 import ProductCard from "./ProductCard";
@@ -10,8 +9,12 @@ function ProductList() {
 
   useEffect(() => {
     const getProducts = async () => {
-      const data = await fetchProducts();
-      setProducts(data);
+      try {
+        const data = await fetchProducts();
+        setProducts(data);
+      } catch (error) {
+        console.error("Failed to fetch products:", error);
+      }
     };
     getProducts();
   }, []);

@@ -1,11 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebook,
-  faInstagram,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa"; // Import icons from react-icons
+import { FaTiktok } from "react-icons/fa"; // Import TikTok icon from react-icons
 
 function Footer() {
   return (
@@ -37,9 +33,8 @@ function Footer() {
         <div className="footer-section">
           <h4>Contact Us</h4>
           <ul>
-            <li>Email: info@gloriouscreations.com</li>
-            <li>Phone: +1 (123) 456-7890</li>
-            <li>Address: 123 Fashion St, City, Country</li>
+            <li>Email: <a href="mailto:info@gloriouscreations.com">info@gloriouscreations.com</a></li>
+            <li>Phone: <a href="tel:+27825251386">+27 82 525 1386</a></li>
           </ul>
         </div>
 
@@ -48,25 +43,25 @@ function Footer() {
           <h4>Follow Us</h4>
           <div className="social-icons">
             <a
-              href="https://facebook.com"
+              href="https://facebook.com/profile.php?id=61560075277390"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={faFacebook} />
+              <FaFacebook />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/glorious__creations01?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={faInstagram} />
+              <FaInstagram />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://www.tiktok.com/@gc7156?is_from_webapp=1&sender_device=pc"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={faTwitter} />
+              <FaTiktok /> {/* TikTok Icon */}
             </a>
           </div>
         </div>

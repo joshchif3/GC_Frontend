@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuth } from "../services/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-function LoginPage() {
+const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -12,14 +12,12 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    
+
     try {
-      const { token, role } = await login(username, password);
-      localStorage.setItem("token", token);
-      navigate(role === "ADMIN" ? "/admin" : "/");
+      await login(username, password);
+      navigate("/dashboard");
     } catch (error) {
-      setError("Login failed. Please check your credentials.");
-      console.error("Login error:", error);
+      setError(error.message);
     }
   };
 
@@ -48,6 +46,6 @@ function LoginPage() {
       </div>
     </div>
   );
-}
+};
 
 export default LoginPage;
